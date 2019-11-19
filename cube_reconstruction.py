@@ -23,7 +23,7 @@ def plot_cube(points3d, title=''):
     fig = plt.figure()
     fig.suptitle(title, fontsize=16)
     ax = fig.gca(projection='3d')
-    ax.set_aspect('equal')
+    # ax.set_aspect('equal')
     ax.plot(points3d[0], points3d[1], points3d[2], 'b.')
     ax.set_xlabel('x axis')
     ax.set_ylabel('y axis')
@@ -115,8 +115,9 @@ print('Computed essential matrix:', (-E / E[0][1]))
 # True fundamental matrix F = K^-t E K^-1
 true_F = np.dot(np.dot(np.linalg.inv(intrinsic).T, true_E), np.linalg.inv(intrinsic))
 F = structure.compute_fundamental_normalized(points1, points2)
-print('True fundamental matrix:', true_F)
-print('Computed fundamental matrix:', (F * true_F[2][2]))
+print('True fundamental matrix:' + str(true_F))
+print('Computed fundamental matrix:')
+      # str(F * true_F[2][2]))
 
 # Given we are at camera 1, calculate the parameters for camera 2
 # Using the essential matrix returns 4 possible camera paramters
